@@ -88,7 +88,7 @@
         <spawnCount>1</spawnCount>
         <spawnIntervalRange>4000~8000</spawnIntervalRange>
       </li>
-	  <li Class="CompProperties_Spawner">
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
         <thingToSpawn>Chemfuel</thingToSpawn>
         <spawnCount>1</spawnCount>
         <spawnIntervalRange>10000~30000</spawnIntervalRange>

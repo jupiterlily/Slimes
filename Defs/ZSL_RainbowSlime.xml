@@ -83,7 +83,7 @@
         <compClass>CompColorable</compClass>
       </li>
 	   
-	 <li Class="CompProperties_Spawner">
+	 <li Class="ZSlime.CompProperties_SlimeSpawner">
         <thingToSpawn>ZSL_RainbowGlob</thingToSpawn>
         <spawnCount>1</spawnCount>
         <spawnIntervalRange>30000~90000</spawnIntervalRange>
