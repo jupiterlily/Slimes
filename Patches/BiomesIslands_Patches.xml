@@ -26,7 +26,7 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAdd"> 
-					<xpath>Defs/BiomeDef[defName="BiomesIslands_DesertIsland"]/wildAnimals</xpath>
+					<xpath>Defs/BiomeDef[defName="BiomesIslands_DesertIslandBase"]/wildAnimals</xpath>
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SteelSlime>0.03</ZSL_SteelSlime>
@@ -35,14 +35,14 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAdd"> 
-					<xpath>Defs/BiomeDef[defName="BiomesIslands_TemperateIsland"]/wildAnimals</xpath>
+					<xpath>Defs/BiomeDef[defName="BiomesIslands_TemperateIslandBase"]/wildAnimals</xpath>
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_WoodSlime>0.05</ZSL_WoodSlime>
 					</value>
 				</li>
 				<li Class="PatchOperationAdd"> 
-					<xpath>Defs/BiomeDef[defName="BiomesIslands_TropicalIsland"]/wildAnimals</xpath>
+					<xpath>Defs/BiomeDef[defName="BiomesIslands_TropicalIslandBase"]/wildAnimals</xpath>
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_WoodSlime>0.03</ZSL_WoodSlime>
@@ -50,7 +50,7 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAdd"> 
-					<xpath>Defs/BiomeDef[defName="BiomesIslands_TundraIsland"]/wildAnimals</xpath>
+					<xpath>Defs/BiomeDef[defName="BiomesIslands_TundraIslandBase"]/wildAnimals</xpath>
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SilverSlime>0.01</ZSL_SilverSlime>
