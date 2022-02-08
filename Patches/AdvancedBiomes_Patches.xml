@@ -22,6 +22,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SteelSlime>0.01</ZSL_SteelSlime>
 						<ZSL_ChemfuelSlime>0.005</ZSL_ChemfuelSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -49,6 +50,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_WoodSlime>0.02</ZSL_WoodSlime>
 						<ZSL_JadeSlime>0.008</ZSL_JadeSlime>
+						<ZSL_WaterSlime>0.02</ZSL_WaterSlime>
 					</value>
 				</li>
 

@@ -299,6 +299,7 @@
   <ItemGroup>
     <Compile Include="CompProperties_FireSlimeOverlay.cs" />
     <Compile Include="CompProperties_Rainbow.cs" />
+    <Compile Include="CompProperties_Cleaner.cs" />
     <Compile Include="CompProperties_SlimeSpawner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RainbowSlimePatch.cs" />

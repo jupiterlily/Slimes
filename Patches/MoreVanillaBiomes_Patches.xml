@@ -14,6 +14,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SilverSlime>0.001</ZSL_SilverSlime>
 						<ZSL_WoodSlime>0.01</ZSL_WoodSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li> 
 				
@@ -26,6 +27,7 @@
 						<ZSL_SteelSlime>0.02</ZSL_SteelSlime>
 						<ZSL_ChemfuelSlime>0.005</ZSL_ChemfuelSlime>
 						<ZSL_FireSlime>0.005</ZSL_FireSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -36,6 +38,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SteelSlime>0.01</ZSL_SteelSlime>
 						<ZSL_JadeSlime>0.008</ZSL_JadeSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -46,6 +49,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SteelSlime>0.03</ZSL_SteelSlime>
 						<ZSL_ChemfuelSlime>0.005</ZSL_ChemfuelSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -55,6 +59,7 @@
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SilverSlime>0.01</ZSL_SilverSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -64,6 +69,7 @@
 					<value>
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_SilverSlime>0.001</ZSL_SilverSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
@@ -74,6 +80,7 @@
 						<ZSL_RainbowSlime>0.001</ZSL_RainbowSlime>
 						<ZSL_WoodSlime>0.05</ZSL_WoodSlime>
 						<ZSL_JadeSlime>0.008</ZSL_JadeSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li> 
 				
@@ -85,6 +92,7 @@
 						<ZSL_SteelSlime>0.03</ZSL_SteelSlime>
 						<ZSL_ChemfuelSlime>0.005</ZSL_ChemfuelSlime>
 						<ZSL_FireSlime>0.05</ZSL_FireSlime>
+						<ZSL_WaterSlime>0.01</ZSL_WaterSlime>
 					</value>
 				</li>
 				
