@@ -7,8 +7,10 @@
     <description>A watery slime. This slime will naturally clean some of the filth in its path.</description>
     <statBases>
       <MoveSpeed>3.8</MoveSpeed>
-      <MarketValue>250</MarketValue>
+      <MarketValue>300</MarketValue>
+
       <ComfyTemperatureMin>-55</ComfyTemperatureMin>
+
       <ComfyTemperatureMax>60</ComfyTemperatureMax>
       <Flammability>2.0</Flammability>
 
