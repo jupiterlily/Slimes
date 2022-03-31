@@ -13,7 +13,7 @@ namespace ZSlime
         public Slimes(ModContentPack content) : base(content)
         {
             new Harmony("zylle.Slimes").PatchAll();
-            Log.Message("Initializing Terraria Biomes");
+            Log.Message("Initializing Slimes");
         }
     }
 }
