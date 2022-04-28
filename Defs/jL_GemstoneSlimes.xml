@@ -1,0 +1,1731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--Diamond Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_DiamondSlime</defName>
+    <label>diamond slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggDiamondSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughDiamond</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughDiamond>35</RF_RoughDiamond>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_DiamondSlime</defName>
+    <label>diamond slime</label>
+    <race>ZSL_DiamondSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(211,211,211)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(211,211,211)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(211,211,211)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggDiamondSlimeFertilized</defName>
+    <label>diamond slime egg (fert.)</label>
+    <description>A fertilized diamond slime egg. If all goes well, it should hatch into a baby diamond slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(211,211,211)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_DiamondSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <!--Ruby Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_RubySlime</defName>
+    <label>ruby slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggRubySlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughRuby</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughRuby>35</RF_RoughRuby>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_RubySlime</defName>
+    <label>ruby slime</label>
+    <race>ZSL_RubySlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(189,25,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(189,25,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(189,25,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggRubySlimeFertilized</defName>
+    <label>ruby slime egg (fert.)</label>
+    <description>A fertilized ruby slime egg. If all goes well, it should hatch into a baby ruby slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(189,25,60)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_RubySlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  
+    <!--Carnelian Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_CarnelianSlime</defName>
+    <label>carnelian slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggCarnelianSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughCarnelian</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughCarnelian>35</RF_RoughCarnelian>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_CarnelianSlime</defName>
+    <label>carnelian slime</label>
+    <race>ZSL_CarnelianSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(255,127,80)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(255,127,80)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(255,127,80)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggCarnelianSlimeFertilized</defName>
+    <label>carnelian slime egg (fert.)</label>
+    <description>A fertilized carnelian slime egg. If all goes well, it should hatch into a baby carnelian slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(255,127,80)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_CarnelianSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Citrine Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_CitrineSlime</defName>
+    <label>citrine slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggCitrineSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughCitrine</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughCitrine>35</RF_RoughCitrine>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_CitrineSlime</defName>
+    <label>citrine slime</label>
+    <race>ZSL_CitrineSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggCitrineSlimeFertilized</defName>
+    <label>citrine slime egg (fert.)</label>
+    <description>A fertilized citrine slime egg. If all goes well, it should hatch into a baby citrine slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(201,193,34)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_CitrineSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Peridot Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_PeridotSlime</defName>
+    <label>peridot slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggPeridotSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughPeridot</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughPeridot>35</RF_RoughPeridot>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_PeridotSlime</defName>
+    <label>peridot slime</label>
+    <race>ZSL_PeridotSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(201,193,34)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggPeridotSlimeFertilized</defName>
+    <label>peridot slime egg (fert.)</label>
+    <description>A fertilized peridot slime egg. If all goes well, it should hatch into a baby peridot slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(201,193,34)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_PeridotSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Emerald Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_EmeraldSlime</defName>
+    <label>emerald slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggEmeraldSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughEmerald</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughEmerald>35</RF_RoughEmerald>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_EmeraldSlime</defName>
+    <label>emerald slime</label>
+    <race>ZSL_EmeraldSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(50,150,50)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(50,150,50)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(50,150,50)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggEmeraldSlimeFertilized</defName>
+    <label>emerald slime egg (fert.)</label>
+    <description>A fertilized emerald slime egg. If all goes well, it should hatch into a baby emerald slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(50,150,50)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_EmeraldSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Aquamarine Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_AquamarineSlime</defName>
+    <label>aquamarine slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggAquamarineSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughAquamarine</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughAquamarine>35</RF_RoughAquamarine>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_AquamarineSlime</defName>
+    <label>aquamarine slime</label>
+    <race>ZSL_AquamarineSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(51,255,255)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(51,255,255)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(51,255,255)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggAquamarineSlimeFertilized</defName>
+    <label>aquamarine slime egg (fert.)</label>
+    <description>A fertilized aquamarine slime egg. If all goes well, it should hatch into a baby aquamarine slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(51,255,255)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_AquamarineSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Sapphire Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_SapphireSlime</defName>
+    <label>sapphire slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggSapphireSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughSapphire</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughSapphire>35</RF_RoughSapphire>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_SapphireSlime</defName>
+    <label>sapphire slime</label>
+    <race>ZSL_SapphireSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(0,125,225)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(0,125,225)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(0,125,225)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggSapphireSlimeFertilized</defName>
+    <label>sapphire slime egg (fert.)</label>
+    <description>A fertilized sapphire slime egg. If all goes well, it should hatch into a baby sapphire slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(0,125,225)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_SapphireSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Amethyst Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_AmethystSlime</defName>
+    <label>amethyst slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggAmethystSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughAmethyst</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughAmethyst>35</RF_RoughAmethyst>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_AmethystSlime</defName>
+    <label>amethyst slime</label>
+    <race>ZSL_AmethystSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(115,64,166)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(115,64,166)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(115,64,166)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggAmethystSlimeFertilized</defName>
+    <label>amethyst slime egg (fert.)</label>
+    <description>A fertilized amethyst slime egg. If all goes well, it should hatch into a baby amethyst slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(115,64,166)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_AmethystSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Kunzite Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_KunziteSlime</defName>
+    <label>kunzite slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggKunziteSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughKunzite</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughKunzite>35</RF_RoughKunzite>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_KunziteSlime</defName>
+    <label>kunzite slime</label>
+    <race>ZSL_KunziteSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(235,180,237)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(235,180,237)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(235,180,237)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggKunziteSlimeFertilized</defName>
+    <label>kunzite slime egg (fert.)</label>
+    <description>A fertilized kunzite slime egg. If all goes well, it should hatch into a baby kunzite slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(235,180,237)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_KunziteSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+    <!--Onyx Slime-->
+  <ThingDef ParentName="ZSL_SlimeBase">
+    <defName>ZSL_OnyxSlime</defName>
+    <label>onyx slime</label>
+    <description>A green slime, most at home in leafy jungles.</description>
+    <statBases>
+      <MoveSpeed>4.2</MoveSpeed>
+      <MarketValue>650</MarketValue>
+      <ComfyTemperatureMin>-35</ComfyTemperatureMin>
+      <ComfyTemperatureMax>65</ComfyTemperatureMax>
+      <Flammability>0.0</Flammability>
+
+    </statBases>
+    <tools>
+      <li>
+        <label>teeth</label>
+        <capacities>
+          <li>Bite</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>12</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+    <race>
+      <trainability>Intermediate</trainability>
+      <baseBodySize>0.9</baseBodySize>
+      <baseHungerRate>0.45</baseHungerRate>
+      <baseHealthScale>0.7</baseHealthScale>
+      <foodType>OmnivoreRoughAnimal</foodType>
+      <wildness>0.60</wildness>
+      <manhunterOnTameFailChance>0.30</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.30</manhunterOnDamageChance>
+      <lifeExpectancy>16</lifeExpectancy>
+	  
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.22</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.45</minAge>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+	<comps>
+      <li Class="CompProperties_EggLayer">
+        <eggFertilizedDef>ZSL_EggOnyxSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>6</eggLayIntervalDays>
+        <eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  
+	  <li Class="ZSlime.CompProperties_SlimeSpawner">
+        <thingToSpawn>RF_RoughOnyx</thingToSpawn>
+        <spawnCount>1</spawnCount>
+        <spawnIntervalRange>10000~30000</spawnIntervalRange>
+      </li>
+    </comps>
+	
+	<butcherProducts>
+      <RF_RoughOnyx>35</RF_RoughOnyx>
+    </butcherProducts>
+	
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>ZSL_OnyxSlime</defName>
+    <label>onyx slime</label>
+    <race>ZSL_OnyxSlime</race>
+    <combatPower>190</combatPower>
+    <ecoSystemWeight>0.80</ecoSystemWeight>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>0.8</drawSize>
+          <color>(50,60,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.1</drawSize>
+          <color>(50,60,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Slime</texPath>
+          <drawSize>1.3</drawSize>
+          <color>(50,60,60)</color>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+		  <texPath>ZSlimes/Animal/Slime/Dessicated_Slime</texPath>
+          <drawSize>1.3</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>ZSL_EggOnyxSlimeFertilized</defName>
+    <label>onyx slime egg (fert.)</label>
+    <description>A fertilized onyx slime egg. If all goes well, it should hatch into a baby onyx slime. It can be eaten raw, but it's much better cooked.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggRound</texPath>
+      <color>(50,60,60)</color>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>53.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>7</hatcherDaystoHatch>
+        <hatcherPawn>ZSL_OnyxSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+  
+</Defs>
